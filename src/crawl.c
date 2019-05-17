@@ -4,14 +4,14 @@
 
 #include "crawl_type.h"
 
-/*
-	Convert URL-string to URL-object.
-	URL-object is defined in "htmlget.h".
-
-	arg:	(char*)url_str		...[input]  URL-String(Max 511(BUFSIZ)byte).
-			(URLObject*)url_obj	...[output] URL-Object
-	ret:	(int)			...Success: 1  Failure: 0
-*/
+/**
+ *	Convert URL-string to URL-object.
+ *	URL-object is defined in "htmlget.h".
+ *
+ *	@arg url_str	- [in]URL-String(Max 511(BUFSIZ)byte)
+ *	@arg url_obj	- [out]URL-Object
+ *	@return			- Success: 1  Failure: 0
+ */
 int parse_url(const char *url_str, URLObject *url_obj){
 	if(strlen(url_str) > BUFSIZ-2) return 0;
 
@@ -35,7 +35,14 @@ int parse_url(const char *url_str, URLObject *url_obj){
 	return 0;
 }
 
-char *getonlinedata(const URLObject *url_obj){	
+/**
+ *	Acquire data from the Internet.
+ *
+ *	@arg url_obj	- [in]URL-Object
+ *	@arg data		- [out]acquired data
+ *	@return			- Success: 1  Failure: 0
+ */
+int getonlinedata(const URLObject *url_obj, char *data){	
 	struct addrinfo hints;
 	struct addrinfo *result;
 	struct addrinfo *rp;
@@ -94,5 +101,6 @@ char *getonlinedata(const URLObject *url_obj){
 	}
 	close(s);
 	
-	return rbuf;
+	data = rbuf;
+	return 1;
 }

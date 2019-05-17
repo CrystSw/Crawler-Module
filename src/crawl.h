@@ -1,8 +1,8 @@
-/*
-Crawl-Helper Module for C/C++ on linux.
-
-This module not supported to Mluti-byte character.
-*/
+/**
+ *	Crawler-Module for C/C++ on linux.
+ *	
+ *	This module not supported to Mluti-byte character.
+ */
 
 #ifndef __HTML_GET_H_INCLUDED__
 #define __HTML_GET_H_INCLUDED__
@@ -11,8 +11,8 @@ This module not supported to Mluti-byte character.
 
 /*Function declaration*/
 extern int parseurl(const char *url_str, URLObject *url_obj);
-extern char *getonlinedata(URLObject *url_obj)
-extern HTMLObject *converthtmlobj(const char *html_str);
-extern void free_htmlobj(HTMLObject *html_obj);
+extern char *getonlinedata(URLObject *url_obj);
+/*not implemented*/extern HTMLObject *converthtmlobj(const char *html_str);
+/*not implemented*/extern void free_htmlobj(HTMLObject *html_obj);
 
 #endif
