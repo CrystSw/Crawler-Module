@@ -16,12 +16,6 @@ enum htmlobj_type {
 	HTML_STRING
 }
 
-enum err {
-	UNKNOWN_ERROR = -20,
-	URL_TOO_LONG,
-	INVALID_SYNTAX
-}
-
 /*Structure declaration*/
 struct url_obj;
 struct html_obj;
@@ -32,7 +26,7 @@ typedef struct url_obj {
 	char url_info[BUFSIZ];
 	unsigned char protocol;
 	char *fqdn;
-	unsigned short port;
+	char *port;
 	char *path;
 } URLObject;
 
