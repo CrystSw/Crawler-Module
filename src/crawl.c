@@ -46,7 +46,7 @@ int parse_url(const char *url_str, URLObject *url_obj){
  *	@arg data		- [out]acquired data
  *	@return			- Success: 1  Failure: 0
  */
-int getonlinedata(const URLObject *url_obj, char *data){	
+int getonlinedata(const URLObject *url_obj, char **data){	
 	struct addrinfo hints;
 	struct addrinfo *result;
 	struct addrinfo *rp;
@@ -105,6 +105,6 @@ int getonlinedata(const URLObject *url_obj, char *data){
 	}
 	close(s);
 	
-	data = rbuf;
+	*data = rbuf;
 	return 1;
 }
