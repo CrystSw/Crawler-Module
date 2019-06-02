@@ -1,3 +1,5 @@
+#include "crawl_conf.h"
+
 /*
 Define of Type, Enumerator
 */
@@ -6,7 +8,7 @@ Define of Type, Enumerator
 enum protocol {
 	HTTP = 1,
 	HTTPS
-}
+};
 
 /*HTML Object Type-Constant*/
 enum htmlobj_type {
@@ -14,31 +16,31 @@ enum htmlobj_type {
 	HTML_TAG,
 	HTML_ATTRIBUTE,
 	HTML_STRING
-}
+};
 
 /*Structure declaration*/
 struct url_obj;
-struct html_obj;
-struct obj_list;
+//struct html_obj;
+//struct obj_list;
 
 /*Structure definition*/
 typedef struct url_obj {
-	char url_info[BUFSIZ];
+	char url_info[URLSIZE];
 	unsigned char protocol;
 	char *fqdn;
 	char *port;
 	char *path;
 } URLObject;
 
-typedef struct html_obj {
+/*typedef struct html_obj {
 	char type;
-	char name[BUFSIZ];
-	char value[BUFSIZ];
+	char name[URLSIZE];
+	char value[URLSIZE];
 	struct obj_list *list;
 } HTMLObject;
 
 struct obj_list {
 	HTMLObject *obj;
 	struct obj_list *next;
-};
+};*/
 

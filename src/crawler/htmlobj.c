@@ -9,7 +9,7 @@
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
-#include "crawl_type.h"
+#include "web_type.h"
 
 /**
  *	Convert URL-string to URL-object.
